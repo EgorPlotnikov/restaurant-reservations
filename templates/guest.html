@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ресторан</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Ресторан</h1>
+    <form method="post" action="postguest/">
+        {% csrf_token %}
+        <h3>Имя</h3>
+        <input name="name" />
+        <h3>Номер телефона</h3>
+        <input name="phone" />
+        <br/><br/>
+        <input type="submit" value="Далее" />
+    </form>
+</body>
+</html>

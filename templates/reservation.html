@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ресторан</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Ресторан</h1>
+    <p>Гость: {{ this_guest.name }}</p>
+    <form method="post" action="/postreservation/">
+        {% csrf_token %}
+        <h3>Столик</h3>
+        <select name="table_number" id="table_number">
+            {% for table in tables %}
+                <option value="{{ table.number }}">Стол {{ table.number }} — {{ table.capacity }} гостя</option>
+            {% endfor %}
+        </select>
+        <h3>Дата и время бронирования</h3>
+        <input type="date" name="date">
+        <input type="time" name="time">
+        <select name="duration" id="duration">
+            <option value="1">Один час</option>
+            <option value="2">Два часа</option>
+            <option value="3">Три часа</option>
+        </select>
+        <br/><br/>
+        <input type="submit" value="Забронировать" />
+    </form>
+</body>
+</html>
